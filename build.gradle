@@ -23,24 +23,22 @@ repositories {
 }
 
 dependencies {
+    runtimeOnly 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.data:spring-data-rest-hal-explorer'
     implementation "io.springfox:springfox-swagger2:$springfoxVersion"
     implementation "io.springfox:springfox-data-rest:$springfoxVersion"
     implementation "io.springfox:springfox-swagger-ui:$springfoxVersion"
     implementation "org.springframework.plugin:spring-plugin-core:$springPluginCoreVersion"
-    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     compileOnly "org.projectlombok:lombok:$lombokVersion"
-    runtimeOnly 'com.h2database:h2'
     testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
-    //testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
-    //testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
 }
 
 test {
