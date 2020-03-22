@@ -15,15 +15,15 @@ gradle clean test
 
 ### Additional Information
 
-* API supports HAL format and includes HAL explorer for easy navigation through the endpoints: [http://localhost:8080] 
-* Health check is available via Actuator at [http://localhost:8080/actuator/health]
+* API supports HAL format and includes HAL explorer for easy navigation through the endpoints: [http://localhost:8080](http://localhost:8080)
+* Health check is available via Actuator at [http://localhost:8080/actuator/health](http://localhost:8080/actuator/health)
 * Application includes embedded H2 database as a data store
-* H2 console is available at [http://localhost:8080/h2-console/]
+* H2 console is available at [http://localhost:8080/h2-console/](http://localhost:8080/h2-console/)
 * H2 JDBC URL is `jdbc:h2:mem:testdb`, by default H2 stores data in memory, it can be configured to persist data by using file-based storege via this setting in `application.properties`: 
 ```
 spring.datasource.url=jdbc:h2:file:/data/demo
 ```
-* Swagger UI is available at [http://localhost:8080/swagger-ui.html#/]
+* Swagger UI is available at [http://localhost:8080/swagger-ui.html#/](http://localhost:8080/swagger-ui.html#/)
 * Test cURL requests to play with:
 ```
 curl -i localhost:8080
