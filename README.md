@@ -3,13 +3,13 @@
 ### Building & Running
 To build and run the application from gradle:
 
-```
+```sh
 gradle clean bootRun
 ```
 
 To run integration tests from gradle:
 
-```
+```sh
 gradle clean test
 ```
 
@@ -20,12 +20,12 @@ gradle clean test
 * Application includes embedded H2 database as a data store
 * H2 console is available at [http://localhost:8080/h2-console/](http://localhost:8080/h2-console/)
 * H2 JDBC URL is `jdbc:h2:mem:testdb`, by default H2 stores data in memory, it can be configured to persist data by using file-based storege via this setting in `application.properties`: 
-```
+```sh
 spring.datasource.url=jdbc:h2:file:/data/demo
 ```
 * Swagger UI is available at [http://localhost:8080/swagger-ui.html#/](http://localhost:8080/swagger-ui.html#/)
 * Test cURL requests to play with:
-```
+```sh
 curl -i localhost:8080
 curl -i -X POST -H "Content-Type:application/json" -d '{"name": "Test Product 1", "price": 1.1}' http://localhost:8080/products
 curl -i -X POST -H "Content-Type:application/json" -d '{"name": "Test Product 2", "price": 1.1}' http://localhost:8080/products
@@ -50,7 +50,7 @@ curl -i localhost:8080/orders/search/findByCreatedBetween?from=2020-03-23&to=202
 * Unfortunately `@RepositoryRestResource` does not support input validation out of the box and I stuck to that since I decided to go that route. An easy work around it would be adding `@RestController` with custom API
 * Tests only include integration tests as there's no/very little custom code implementing business logic (mocking requires `@Autowired` services)
 * Generated documentation concerning adding an `Order` with related `Products` is misleading as the list of products needs to include the list of URI identifiers rather then JSON representation of `Product`, like so: 
-```
+```sh
 curl -i -X POST -H "Content-Type: application/json" -d '{"email": "test@email", "products": ["http://localhost:8080/products/1"]}' http://localhost:8080/orders
 ```
 * I had an idea to take top-down asynchronous approach with WebFlux and R2DBC API, but R2DBC does not have support for relations, therefore I gave up on this as it would require writing more custom code.
